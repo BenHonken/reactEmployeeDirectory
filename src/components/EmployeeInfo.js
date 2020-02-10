@@ -1,16 +1,16 @@
 import React from "react";
-import CarList from "../data/cars.json";
+import EmployeeList from "../data/employees.json";
 
-function CarInfo(props) {
+function EmployeeInfo(props) {
   console.log(props)
 
-  const results = CarList.filter(car => car.make.toLowerCase().includes(props.search.toLowerCase()));
+  const results = EmployeeList.filter(employee => employee.make.toLowerCase().includes(props.search.toLowerCase()));
 
   return (
     <div className="text-center">
       {results.length > 0 ? (
         <ul className="list-group">
-          <h2>Featured Cars</h2>
+          <h2>Employees</h2>
           {results.map(result => (
             <li className="list-group-item" key={result.id}>
               <b>{result.year}</b> {result.make} {result.model}
@@ -24,4 +24,4 @@ function CarInfo(props) {
   );
 }
 
-export default CarInfo;
+export default EmployeeInfo;
