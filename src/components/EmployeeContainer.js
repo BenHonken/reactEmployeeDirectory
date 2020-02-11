@@ -9,17 +9,16 @@ import EmployeeList from "../data/employees.json";
 class EmployeeContainer extends Component {
   state = {
     result: [],
-    search: "Mazda"
+    search: "Ben"
   };
 
-  // When this component mounts, search for the movie "The Matrix"
   componentDidMount() {
     this.searchEmployees();
   }
 
   searchEmployees = () => {
     const searchQuery = this.state.search.trim();
-    const searchResults = EmployeeList.filter((eEmployee) => employee.make === searchQuery);
+    const searchResults = EmployeeList.filter((employee) => employee.name.first === searchQuery);
     this.setState({ 'result': searchResults });
   };
 
