@@ -5,7 +5,24 @@ function EmployeeInfo(props) {
   console.log(props)
 
   const results = EmployeeList.filter(employee => employee.name.first.toLowerCase().includes(props.search.toLowerCase()) || employee.name.last.toLowerCase().includes(props.search.toLowerCase()) || employee.email.toLowerCase().includes(props.search.toLowerCase()) || employee.location.city.toLowerCase().includes(props.search.toLowerCase()) || employee.location.state.toLowerCase().includes(props.search.toLowerCase()));
-
+  const sort = function(props, results){
+    results.sort(function(a, b){
+      if(props.sortType === 1){
+        var x = a[props.searchType].toLowerCase();
+        var y = b[props.searchType].toLowerCase();
+        if (x < y) {return -1;}
+        if (x > y) {return 1;}
+        return 0;
+      }
+      else{
+        var x = a[props.searchType].toLowerCase();
+        var y = b[props.searchType].toLowerCase();
+        if (x < y) {return 1;}
+        if (x > y) {return -1;}
+        return 0;
+      };
+    });
+  }
   return (
     <div className="text-center">
       {results.length > 0 ? (
