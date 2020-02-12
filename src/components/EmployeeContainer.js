@@ -4,12 +4,16 @@ import Row from "./Row";
 import Col from "./Col";
 import SearchForm from "./SearchForm";
 import EmployeeInfo from "./EmployeeInfo";
+import SortType from "./SortType";
+import SortKey from "./SortKey";
 import EmployeeList from "../data/employees.json";
 
 class EmployeeContainer extends Component {
   state = {
     result: [],
-    search: "Ben"
+    search: "Ben",
+    sortKey: "name.first",
+    sortType: 1
   };
 
   componentDidMount() {
@@ -40,21 +44,27 @@ class EmployeeContainer extends Component {
     return (
       <Container>
         <Row>
-          <Col size="md-4" />
-          <Col size="md-4">
-            <SearchForm
-              searchtype="Make"
-              value={this.state.search}
+        <Col size="md-4">
+            <SortKey
               handleInputChange={this.handleInputChange}
-              handleFormSubmit={this.handleFormSubmit}
             />
           </Col>
-          <Col size="md-4" />
+          <Col size="md-4">
+            <SearchForm
+              value={this.state.search}
+              handleInputChange={this.handleInputChange}
+            />
+          </Col>
+          <Col size="md-4">
+            <SortType
+              handleInputChange={this.handleInputChange}
+            />
+          </Col>
         </Row>
         <Row>
           <Col size="md-12">
             <hr />
-            <EmployeeInfo search={this.state.search} />
+            <EmployeeInfo search={this.state.search} sortType={parseInt(this.state.sortType)} sortKey={this.state.sortKey} />
           </Col>
         </Row>
       </Container >
