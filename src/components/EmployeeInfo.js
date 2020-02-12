@@ -7,22 +7,42 @@ function EmployeeInfo(props) {
   const results = EmployeeList.filter(employee => employee.name.first.toLowerCase().includes(props.search.toLowerCase()) || employee.name.last.toLowerCase().includes(props.search.toLowerCase()) || employee.email.toLowerCase().includes(props.search.toLowerCase()) || employee.location.city.toLowerCase().includes(props.search.toLowerCase()) || employee.location.state.toLowerCase().includes(props.search.toLowerCase()));
   const sort = function(props, results){
     results.sort(function(a, b){
-      if(props.sortType === 1){
-        var x = a[props.searchType].toLowerCase();
-        var y = b[props.searchType].toLowerCase();
-        if (x < y) {return -1;}
-        if (x > y) {return 1;}
-        return 0;
+      try{
+        if(props.sortKey === "name.first"){
+          var x = a.name.first.toLowerCase();
+          var y = b.name.first.toLowerCase();
+        }
+        else if(props.sortKey === "name.last") {
+          var x = a.name.last.toLowerCase();
+          var y = b.name.last.toLowerCase();
+        }
+        else if(props.sortKey === "email") {
+          var x = a.email.toLowerCase();
+          var y = b.email.toLowerCase();
+        }
+        else if(props.sortKey === "location.city") {
+          var x = a.location.city.toLowerCase();
+          var y = b.location.city.toLowerCase();
+        }
+        else if(props.sortKey === "location.state") {
+          var x = a.location.state.toLowerCase();
+          var y = b.location.state.toLowerCase();
+        }
+        if(props.sortType === 1){
+          if (x < y) {return -1;}
+          if (x > y) {return 1;}
+          return 0;
+        }
+        else{
+          if (x < y) {return 1;}
+          if (x > y) {return -1;}
+          return 0;
+        };
       }
-      else{
-        var x = a[props.searchType].toLowerCase();
-        var y = b[props.searchType].toLowerCase();
-        if (x < y) {return 1;}
-        if (x > y) {return -1;}
-        return 0;
-      };
+      catch{}      
     });
   }
+  sort(props, results);
   return (
     <div className="text-center">
       {results.length > 0 ? (
