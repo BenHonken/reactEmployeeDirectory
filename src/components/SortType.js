@@ -9,7 +9,7 @@ function EmployeeInfo(props) {
       </div>
       <div className="card-body"></div>
       <form style={{height: 208}}>
-        <input onChange={props.handleInputChange} type="radio" id="1" name="sortType" value="1" checked />
+        <input onChange={props.handleInputChange} type="radio" id="1" name="sortType" value="1" />
         <label for="name.first">Ascending</label><br />
         <input onChange={props.handleInputChange} type="radio" id="-1" name="sortType" value="-1" />
         <label for="name.first">Decending</label><br /><br /><br />

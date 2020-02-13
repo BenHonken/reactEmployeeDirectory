@@ -9,7 +9,7 @@ function SortKey(props) {
       </div>
       <div className="card-body"></div>
       <form>
-        <input onChange={props.handleInputChange} type="radio" id="name.first" name="sortKey" value="name.first" checked/>
+        <input onChange={props.handleInputChange} type="radio" id="name.first" name="sortKey" value="name.first"/>
         <label for="name.first">First Name</label><br />
         <input onChange={props.handleInputChange} type="radio" id="name.last" name="sortKey" value="name.last" />
         <label for="name.first">Last Name</label><br />
