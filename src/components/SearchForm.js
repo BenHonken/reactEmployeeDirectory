@@ -7,7 +7,7 @@ function SearchForm(props) {
         <h2>Search by name, email, city, or state!</h2>
       </div>
       <div className="card-body"></div>
-      <form>
+      <form style={{height: 208}}>
         <div className="form-group" style={{ padding: '22px' }}>
           <label htmlFor="search">Search</label>
           <input

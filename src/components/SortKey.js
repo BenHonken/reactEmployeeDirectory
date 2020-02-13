@@ -4,9 +4,10 @@ function SortKey(props) {
   return(
   <div>
     <div className="card text-center">
-      <div className="card-header">
+      <div className="card-header" style={{height: 110}}>
         <h2>Sort by...</h2>
       </div>
+      <div className="card-body"></div>
       <form>
         <input onChange={props.handleInputChange} type="radio" id="name.first" name="sortKey" value="name.first" checked/>
         <label for="name.first">First Name</label><br />
